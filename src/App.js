@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import profilePage from './components/ProfilePage';
+// import profilePage from './components/ProfilePage';
 import HomePage from './components/HomePage.js'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 function App() {
