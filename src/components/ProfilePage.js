@@ -1,5 +1,5 @@
-// import react from 'react'
-// import box from './Box.js'
+import react from 'react'
+import box from './Box.js'
 
 function ProfilePage(){
     return(
