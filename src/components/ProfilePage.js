@@ -1,10 +1,21 @@
 import react from 'react'
-import box from './Box.js'
+import {useState} from 'react'
+import Box from './Box.js'
 
-function ProfilePage(){
+function ProfilePage({googleObj}){
+    const [user, setUser] = useState([
+        {
+            box: Box
+        },
+    ])
+
+
     return(
         <div>
             <p>profile page</p>
+            {/* {user.map((user) => (
+                    <h3 name = {googleObj.name} box = {user.box}/>
+            ))} */}
         </div>
     )
 }
