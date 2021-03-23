@@ -1,12 +1,24 @@
-import react from 'react'
-import box from './Box.js'
+import { useState } from 'react'
+import Box from './Box.js'
 
-function boxSlider(){
+function BoxSlider(){
+    const [boxes, setBoxes] = useState([
+        {
+            box_id: '1',
+            contents: 'none',
+        },
+        {
+            box_id: '2',
+            contents: 'none',
+        }
+    ])
     return(
         <div>
-            <box />
+        {boxes.map((box) => (
+            <Box box_id = {box.box_id} content = {box.contents}/>
+        ))}
         </div>
     )
 }
 
-export default boxSlider;
+export default BoxSlider;

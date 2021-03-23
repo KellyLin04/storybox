@@ -1,9 +1,15 @@
 import React from 'react';
-import box from './Box.js';
+import Box from './Box.js';
+import BoxSlider from './BoxSlider.js'
 
-function HomePage(){
+
+function HomePage(props){
     return(
-        <p>kelly failed her driver's test 4 times</p>
+        <div> 
+            <p>Container</p>
+            <BoxSlider />
+        </div>
+
     )
 }
 
