@@ -3,7 +3,7 @@ import box from './Box.js';
 
 function HomePage(){
     return(
-        <p>homepage</p>
+        <p>kelly failed her driver's test 4 times</p>
     )
 }
 
