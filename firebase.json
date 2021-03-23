@@ -9,6 +9,7 @@
       "**/.*",
       "**/node_modules/**"
     ]
-  }
-  
+  },
+
+  "process.env.CI" : false
 }
