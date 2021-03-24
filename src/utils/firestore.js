@@ -21,3 +21,5 @@ function addUser({user_id, name}){
    console.log(user_id)
 }
 export default addUser;
+
+//function to check if user exist
