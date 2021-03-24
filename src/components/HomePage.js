@@ -6,7 +6,6 @@ import BoxSlider from './BoxSlider.js'
 function HomePage(props){
     return(
         <div> 
-            <p>Container</p>
             <BoxSlider />
         </div>
 

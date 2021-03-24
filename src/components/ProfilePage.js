@@ -12,6 +12,7 @@ function ProfilePage({googleObj}){
 
     return(
         <div>
+            <h1>{googleObj.name}</h1>
             <p>profile page</p>
             {/* {user.map((user) => (
                     <h3 name = {googleObj.name} box = {user.box}/>

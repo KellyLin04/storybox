@@ -5,6 +5,7 @@ import HomePage from './components/HomePage.js'
 import { useState } from 'react';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import logo from './components/logo.png';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,13 +21,30 @@ function App() {
 
   return (
     <Router>
-      {loggedIn ?
-        <Logout loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)} /> 
-        :
-        <Login loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)}/>
-      }
-      <p>{loggedIn ? `logged in` : `please log in`}</p>
-      <Link to="/ProfilePage">profile page test</Link>
+      <div className="navbar">
+        <Link to ="/" className="link"><img className="Logo" src={logo} height="100" alt="SeenIt logo"/></Link>
+        <h1 className="title">STORY BOX</h1>
+        <div>
+          {loggedIn ? 
+          <p className="headingText">
+            <Link to = "/ProfilePage" className="link">View Profile</Link>
+          </p>
+          : 
+          <p className="headingText">
+              Log in to view profile
+          </p>
+          }
+        </div>
+        <div className="login-button">
+          {loggedIn ?
+          <Logout loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)} /> 
+          :
+          <Login loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)}/>
+          }
+          <p className="headingText">&nbsp; {loggedIn && googleObj ? `Welcome back, ${googleObj.name}!` : `Not logged in. Please log in.`}&nbsp;</p>
+        </div>
+      </div>
+
       <Switch>
         <Route exact path="/">
           <HomePage googleobj={googleObj}/>
