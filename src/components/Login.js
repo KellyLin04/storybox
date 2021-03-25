@@ -13,12 +13,12 @@ function Login(props) {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
-      `Logged in successfully! Welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+      `Welcome ${res.profileObj.name}`
     );
     refreshTokenSetup(res);
     props.setLoggedIn(true);
     props.setGoogleObj(res.profileObj);
-    addUser({user_id: res.profileObj.googleId, name: res.profileObj.name})
+    addUser({profileObj: res.profileObj})
   };
 
   const onFailure = (res) => {
