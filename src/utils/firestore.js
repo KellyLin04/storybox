@@ -15,15 +15,18 @@ const firebaseConfig = {
 app.initializeApp(firebaseConfig);
 const db = app.firestore();
 
-//add new user
-function addUser({user_id, name}){
-   db.collection('users').add({id: user_id, name: name})
-   console.log(user_id)
-   console.log(user_id)
+// add a new user
+function addUser({user_id, name}) {
+   var usersRef = db.collection('users');
+   var query = usersRef.whereEqualTo(user_id);
+   if (query != null) {
+      usersRef.add({id: user_id, name: name})
+   }
 }
 export default addUser;
 
 //check if user exist
+
 
 //add new items to a box
 
