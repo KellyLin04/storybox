@@ -15,6 +15,7 @@ const firebaseConfig = {
 app.initializeApp(firebaseConfig);
 const db = app.firestore();
 
+//add new user
 function addUser({user_id, name}){
    db.collection('users').add({id: user_id, name: name})
    console.log(user_id)
@@ -22,4 +23,8 @@ function addUser({user_id, name}){
 }
 export default addUser;
 
-//function to check if user exist
+//check if user exist
+
+//add new items to a box
+
+//delete items from a box
