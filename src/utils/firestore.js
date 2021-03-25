@@ -19,7 +19,7 @@ const db = app.firestore();
 function addUser({user_id, name}) {
    var usersRef = db.collection('users');
    var query = usersRef.whereEqualTo(user_id);
-   if (query != null) {
+   if (query.value != null) {
       usersRef.add({id: user_id, name: name})
    }
 }
