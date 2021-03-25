@@ -8,7 +8,6 @@ const Box = ({box_id, content}) => {
                 <p>{box_id}</p>
                 <p>{content}</p>
             </div>
-
         </div>
     )
 }

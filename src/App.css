@@ -90,3 +90,15 @@ div .navbar{
   margin: auto;
 }
 
+/* Profile Page */
+.profile-info{
+  display: flex;
+  justify-content: center;
+}
+
+
+.edit-box{
+  display: flex;
+  justify-content: center;
+} 
+
