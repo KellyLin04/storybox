@@ -17,13 +17,29 @@ const db = app.firestore();
 
 // add a new user
 function addUser({user_id, name}) {
-   var usersRef = db.collection('users');
-   var query = usersRef.whereEqualTo(user_id);
-   if (query.value == null) {
-      usersRef.add({id: user_id, name: name})
-   }
-}
-export default addUser;
+   var userRef = db.collection('users').doc(user_id);
+
+   userRef.get().then((doc) => {
+      if (doc.exists) {
+         console.log("Document data:", doc.data());
+      } else {
+         console.log("No such document!");
+         // add the user
+         db.collection("users").doc(user_id).set({
+            id: user_id,
+            name: name
+         })
+         .then(() => {
+            console.log("Document successfully written!");
+         })
+         .catch((error) => {
+            console.error("Error writing document: ", error);
+         });
+      }
+   }).catch((error) => {
+      console.log("Error getting document:", error);
+   });
+} export default addUser;
 
 //check if user exist
 
