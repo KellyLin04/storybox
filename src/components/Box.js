@@ -1,4 +1,5 @@
 import React from 'react'
+import getUser from '../utils/firestore.js'
 
 const Box = ({box_id, content}) => {
     return (

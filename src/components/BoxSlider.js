@@ -5,11 +5,11 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 function BoxSlider(){
     const [boxes, setBoxes] = useState([
         {
-            box_id: '1',
+            box_id: '101798993267056885108', // andy's box hardcode
             contents: 'none',
         },
         {
-            box_id: '2',
+            box_id: '108304798411370817374', // doris's box hardcode
             contents: 'none',
         }
     ])

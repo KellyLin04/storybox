@@ -37,12 +37,13 @@ function getUser({user_id}) {
    });
 }
 
-/* Gets a user's box(s)
-* 
-* @param user_id
-* @param name  
-* @return doc.data()
-*/
+/** 
+ * Gets a user's box(s)
+ * 
+ * @param user_id
+ * @param name  
+ * @return doc.data()
+ */
 function getBox({user_id}) {
   var userRef = db.collection('boxes').doc(user_id);
 
