@@ -1,8 +1,10 @@
-
-
 html {
   background-color: #FFFEF2;
   overflow-y: scroll;
+}
+
+.circular-image {
+  border-radius: 50%;
 }
 
 div .navbar{
@@ -37,6 +39,7 @@ div .navbar{
   font-weight: bold;
   width: 400px;
   text-align: center;
+  font-family: "Courier new"
 }
 
 /* boxSlider */

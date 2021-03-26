@@ -16,6 +16,49 @@ app.initializeApp(firebaseConfig);
 const db = app.firestore();
 
 /**
+ * Gets a user
+ * 
+ * @param user_id
+ * @param name  
+ * @return doc.data()
+ */
+function getUser({user_id}) {
+   var userRef = db.collection('users').doc(user_id);
+
+   userRef.get().then((doc) => {
+      if (doc.exists) {
+         console.log("Document data:", doc.data());
+         return doc.data()
+      } else {
+         console.log("No such document!");
+      }
+   }).catch((error) => {
+      console.log("Error getting document:", error);
+   });
+}
+
+/* Gets a user's box(s)
+* 
+* @param user_id
+* @param name  
+* @return doc.data()
+*/
+function getBox({user_id}) {
+  var userRef = db.collection('boxes').doc(user_id);
+
+  userRef.get().then((doc) => {
+     if (doc.exists) {
+        console.log("Document data:", doc.data());
+        return doc.data()
+     } else {
+        console.log("No such document!");
+     }
+  }).catch((error) => {
+     console.log("Error getting document:", error);
+  });
+}
+
+/**
  * Adds a user if that user does not exist in the database
  * 
  * @param user_id
