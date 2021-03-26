@@ -25,10 +25,14 @@ function App() {
         <Link to ="/" className="link"><img className="Logo" src={logo} height="100" alt="SeenIt logo"/></Link>
         <h1 className="title">STORY BOX</h1>
         <div>
-          {loggedIn ? 
-          <p className="headingText">
-            <Link to = "/ProfilePage" className="link">View Profile</Link>
-          </p>
+          {loggedIn && googleObj ? 
+          <div>
+            <p className="headingText">
+              <Link to = "/ProfilePage" className="link">
+                <img class = "circular-image" src={googleObj.imageUrl} alt="profile pic" ></img>
+              </Link>
+            </p>
+          </div>
           : 
           <p className="headingText">
               Log in to view profile
