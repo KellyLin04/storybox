@@ -40,22 +40,24 @@ div .navbar{
 }
 
 /* boxSlider */
-.box-container{
-  /* width: 80%;
-  height: 500px;
-  border: #F8AD9D;
+.box-slider{
   background-color: #FBC4AB;
-  border-radius: 25px;
-  justify-content: space-evenly;
-  display: flex; */
   margin: 40px auto 0 auto;
   padding: 15px;
   height: 500px;
   width: 80%;
+}
+.box-container{
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FBC4AB;
+}
+
+.box-slider-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .right-arrow {
