@@ -78,7 +78,9 @@ function addUser({profileObj}) {
             id: profileObj.googleId,
             name: profileObj.name,
             email: profileObj.email,
-            imageUrl: profileObj.imageUrl
+            imageUrl: profileObj.imageUrl,
+            liked: [],
+            matches: []
          })
          .then(() => {
             console.log("Document successfully written!");
@@ -127,4 +129,10 @@ function addUser({profileObj}) {
    });
 }
 
+//add items to box
+
 //delete items from a box
+
+//save box id to user's "liked" boxes
+
+//save matches

@@ -30,22 +30,34 @@ function BoxSlider(){
     return null;
     }
 
+    //save box to data base
+    function saveLikedBox(){
+        console.log("save to database");
+    }
+
     return(
-        <div className = "box-container">
-            <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-            {boxes.map((box, index) => {
-                return (
-                <div
-                    className={index === current ? 'slide active' : 'slide'}
-                    key={index}
-                >
-                    {index === current && (
-                    <Box box_id = {box.box_id} content = {box.contents}/>
-                    )}
-                </div>
-                );
-            })}
-            <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+        <div className="box-slider">
+            <div className = "box-container">
+                <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+                {boxes.map((box, index) => {
+                    return (
+                    <div
+                        className={index === current ? 'slide active' : 'slide'}
+                        key={index}
+                    >
+                        {index === current && (
+                        <Box box_id = {box.box_id} content = {box.contents}/>
+                        )}
+                    </div>
+                    );
+                })}
+                <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+            </div>
+            <br></br>
+            <div className="box-slider-buttons">
+                <button onClick={nextSlide}>Decline</button>
+                <button onClick={saveLikedBox}>Accept</button>
+            </div>
         </div>
     )
 }
