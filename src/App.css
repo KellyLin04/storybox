@@ -1,8 +1,10 @@
-
-
 html {
   background-color: #FFFEF2;
   overflow-y: scroll;
+}
+
+.circular-image {
+  border-radius: 50%;
 }
 
 div .navbar{
@@ -37,25 +39,28 @@ div .navbar{
   font-weight: bold;
   width: 400px;
   text-align: center;
+  font-family: "Courier new"
 }
 
 /* boxSlider */
-.box-container{
-  /* width: 80%;
-  height: 500px;
-  border: #F8AD9D;
+.box-slider{
   background-color: #FBC4AB;
-  border-radius: 25px;
-  justify-content: space-evenly;
-  display: flex; */
   margin: 40px auto 0 auto;
   padding: 15px;
   height: 500px;
   width: 80%;
+}
+.box-container{
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FBC4AB;
+}
+
+.box-slider-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .right-arrow {
@@ -122,4 +127,16 @@ div .navbar{
   text-align: center;
   margin: auto;
 }
+
+/* Profile Page */
+.profile-info{
+  display: flex;
+  justify-content: center;
+}
+
+
+.edit-box{
+  display: flex;
+  justify-content: center;
+} 
 

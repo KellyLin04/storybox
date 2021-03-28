@@ -13,6 +13,7 @@ function Login(props) {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
       `Logged in successfully! Welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
@@ -22,11 +23,14 @@ function Login(props) {
 =======
       `Welcome ${res.profileObj.name}!`
 >>>>>>> Stashed changes
+=======
+      `Welcome ${res.profileObj.name}`
+>>>>>>> 1a0cc88bfa58e31391c88edf40d7d9d56e5fa44d
     );
     refreshTokenSetup(res);
     props.setLoggedIn(true);
     props.setGoogleObj(res.profileObj);
-    addUser({user_id: res.profileObj.googleId, name: res.profileObj.name})
+    addUser({profileObj: res.profileObj})
   };
 
   const onFailure = (res) => {

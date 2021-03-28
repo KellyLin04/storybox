@@ -13,8 +13,7 @@ import {
   Link
 } from "react-router-dom";
 
-
-function App() {
+function App() { 
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [googleObj, setGoogleObj] = useState();
@@ -22,13 +21,17 @@ function App() {
   return (
     <Router>
       <div className="navbar">
-        <Link to ="/" className="link"><img className="Logo" src={logo} height="100" alt="SeenIt logo"/></Link>
+        <Link to ="/" className="link"><img className="Logo" src={logo} height="150" alt="storybox logo"/></Link>
         <h1 className="title">STORY BOX</h1>
         <div>
-          {loggedIn ? 
-          <p className="headingText">
-            <Link to = "/ProfilePage" className="link">View Profile</Link>
-          </p>
+          {loggedIn && googleObj ? 
+          <div>
+            <p className="headingText">
+              <Link to = "/ProfilePage" className="link">
+                <img class = "circular-image" src={googleObj.imageUrl} alt="profile pic" ></img>
+              </Link>
+            </p>
+          </div>
           : 
           <p className="headingText">
               Log in to view profile.
@@ -55,6 +58,4 @@ function App() {
       </Switch>
     </Router>
   );
-}
-
-export default App;
+} export default App;

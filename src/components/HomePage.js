@@ -9,6 +9,7 @@ function HomePage(props){
             <BoxSlider />
         </div>
 
+
     )
 }
 

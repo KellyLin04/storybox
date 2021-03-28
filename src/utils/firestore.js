@@ -15,11 +15,124 @@ const firebaseConfig = {
 app.initializeApp(firebaseConfig);
 const db = app.firestore();
 
-function addUser({user_id, name}){
-   db.collection('users').add({id: user_id, name: name})
-   console.log(user_id)
-   console.log(user_id)
-}
-export default addUser;
+/**
+ * Gets a user
+ * 
+ * @param user_id
+ * @param name  
+ * @return doc.data()
+ */
+function getUser({user_id}) {
+   var userRef = db.collection('users').doc(user_id);
 
-//function to check if user exist
+   userRef.get().then((doc) => {
+      if (doc.exists) {
+         console.log("Document data:", doc.data());
+         return doc.data()
+      } else {
+         console.log("No such document!");
+      }
+   }).catch((error) => {
+      console.log("Error getting document:", error);
+   });
+}
+
+/** 
+ * Gets a user's box(s)
+ * 
+ * @param user_id
+ * @param name  
+ * @return doc.data()
+ */
+function getBox({user_id}) {
+  var userRef = db.collection('boxes').doc(user_id);
+
+  userRef.get().then((doc) => {
+     if (doc.exists) {
+        console.log("Document data:", doc.data());
+        return doc.data()
+     } else {
+        console.log("No such document!");
+     }
+  }).catch((error) => {
+     console.log("Error getting document:", error);
+  });
+}
+
+/**
+ * Adds a user if that user does not exist in the database
+ * 
+ * @param user_id
+ * @param name  
+ */
+function addUser({profileObj}) {
+   var userRef = db.collection('users').doc(profileObj.googleId);
+
+   userRef.get().then((doc) => {
+      if (doc.exists) {
+         console.log("Document data:", doc.data());
+      } else {
+         console.log("No such document!");
+         // add the user
+         db.collection("users").doc(profileObj.googleId).set({
+            id: profileObj.googleId,
+            name: profileObj.name,
+            email: profileObj.email,
+            imageUrl: profileObj.imageUrl,
+            liked: [],
+            matches: []
+         })
+         .then(() => {
+            console.log("Document successfully written!");
+         })
+         .catch((error) => {
+            console.error("Error writing document: ", error);
+         });
+         // add an empty box
+         var arr = []
+         addNewBox({user_id: profileObj.googleId, contents: arr});
+      }
+   }).catch((error) => {
+      console.log("Error getting document:", error);
+   });
+} export default addUser;
+
+/**
+ * Creates a new box for the user 
+ * 
+ * @param user_id 
+ * @param contents an array of strings represeting the box contents
+ */
+ function addNewBox({user_id, contents}) {
+   var userRef = db.collection('boxes').doc(user_id);
+
+   userRef.get().then((doc) => {
+      if (doc.exists) {
+         console.log("Document data:", doc.data());
+      } else {
+         console.log("No such document!");
+         // add the user
+         db.collection("boxes").doc(user_id).set({
+            id: user_id,
+            status: "empty",
+            contents: contents
+         })
+         .then(() => {
+            console.log("Document successfully written!");
+         })
+         .catch((error) => {
+            console.error("Error writing document: ", error);
+         });
+      }
+   }).catch((error) => {
+      console.log("Error getting document:", error);
+   });
+}
+
+//add items to box
+
+//delete items from a box
+
+//save box id to user's "liked" boxes
+
+//save matches
