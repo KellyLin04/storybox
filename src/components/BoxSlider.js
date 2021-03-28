@@ -36,8 +36,6 @@ function BoxSlider(){
     }
 
     return(
-<<<<<<< HEAD
-<<<<<<< Updated upstream
         <div className = "box-container">
             <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
             {boxes.map((box, index) => {
@@ -53,9 +51,7 @@ function BoxSlider(){
                 );
             })}
             <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-=======
-=======
->>>>>>> 1a0cc88bfa58e31391c88edf40d7d9d56e5fa44d
+
         <div className="box-slider">
             <div className = "box-container">
                 <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
@@ -75,16 +71,14 @@ function BoxSlider(){
             </div>
             <br></br>
             <div className="box-slider-buttons">
-<<<<<<< HEAD
+
                 <button className = "button1" onClick={nextSlide}>Decline</button>
                 <button className = "button2" onClick={saveLikedBox}>Accept</button>
             </div>
->>>>>>> Stashed changes
-=======
-                <button onClick={nextSlide}>Decline</button>
-                <button onClick={saveLikedBox}>Accept</button>
+                <button className = "button1" onClick={nextSlide}>Decline</button>
+                <button className = "button2" onClick={saveLikedBox}>Accept</button>
+
             </div>
->>>>>>> 1a0cc88bfa58e31391c88edf40d7d9d56e5fa44d
         </div>
     )
 }
