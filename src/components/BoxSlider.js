@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Box from './Box.js'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import saveLikedBox from '../utils/firestore.js'
 
 function BoxSlider(){
     const [boxes, setBoxes] = useState([
@@ -31,9 +32,6 @@ function BoxSlider(){
     }
 
     //save box to data base
-    function saveLikedBox(){
-        console.log("save to database");
-    }
 
     return(
         <div className="box-slider">
@@ -55,8 +53,8 @@ function BoxSlider(){
             </div>
             <br></br>
             <div className="box-slider-buttons">
-                <button onClick={nextSlide}>Decline</button>
-                <button onClick={saveLikedBox}>Accept</button>
+                <button className = "button1" onClick={nextSlide}>Decline</button>
+                <button className = "button2" onClick={saveLikedBox}>Accept</button>
             </div>
         </div>
     )
