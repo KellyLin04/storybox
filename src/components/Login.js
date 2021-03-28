@@ -14,7 +14,11 @@ function Login(props) {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       `Logged in successfully! Welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+=======
+      `Welcome ${res.profileObj.name}!`
+>>>>>>> Stashed changes
 =======
       `Welcome ${res.profileObj.name}!`
 >>>>>>> Stashed changes
