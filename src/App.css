@@ -76,6 +76,39 @@ div .navbar{
   user-select: none;
 }
 
+.button1 {
+  cursor: pointer;
+  font-family: 'Courier new';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  height: 38px;
+  width: 100px;
+  line-height: 38px;
+  overflow: hidden;
+  background: #dd7070;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px rgba(black,.1);
+  border: 0;
+}
+
+.button2 {
+  cursor: pointer;
+  font-family: 'Courier new';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: 1px;
+  height: 38px;
+  width: 100px;
+  line-height: 38px;
+  overflow: hidden;
+  background: #61ad57;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px rgba(black,.1);
+  border: 0;
+}
+
 /* box */
 .box{
   width: 400px;

@@ -31,7 +31,7 @@ function App() {
           </p>
           : 
           <p className="headingText">
-              Log in to view profile
+              Log in to view profile.
           </p>
           }
         </div>
