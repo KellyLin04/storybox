@@ -28,7 +28,7 @@ function getUser({user_id}) {
    userRef.get().then((doc) => {
       if (doc.exists) {
          console.log("Document data:", doc.data());
-         return doc
+         return doc.data
       } else {
          console.log("No such document!");
       }
@@ -62,7 +62,7 @@ function getBox({user_id}) {
   });
 }
 export {
-   getBox,
+   getBox
 }
 
 /**
@@ -101,7 +101,10 @@ function addUser({profileObj}) {
    }).catch((error) => {
       console.log("Error getting document:", error);
    });
-} export default addUser;
+}
+export {
+   addUser,
+}
 
 /**
  * Creates a new box for the user 
@@ -145,17 +148,58 @@ export {
  * @param liked_id an array of strings represeting the box contents
  */
 
-function saveLikedBox(user_id, liked_id){
-   console.log("save to database");
-   var userRef = getUser(user_id);
-   var userData = userRef.data();
-   var arrayLiked = userData.liked;
-   arrayLiked.push(liked_id);
-   const res = userRef.update({liked: arrayLiked});
+function saveLikedBox({user_id, liked_id}) { 
+   console.log("called savedLikedBox")
+   var userRef = db.collection('users').doc(user_id);
+
+   userRef.get().then((doc) => {
+      if (doc.exists) {
+         var arrayLiked = doc.data().liked;
+         arrayLiked.push(liked_id);
+         const res = userRef.update({liked: arrayLiked});
+
+      } else {
+         console.log("No such document!");
+      }
+   }).catch((error) => {
+      console.log("Error getting document:", error);
+   });
 }
 export {
    saveLikedBox,
 }
+
+/** 
+ * Get all boxes
+ * 
+ * @return doc.data()
+ */
+ function getAllBoxes() {
+   // make an array
+   var arr = []
+   db.collection('boxes').get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+         arr.push({
+            box_id: doc.id,
+            contents: doc.data().contents
+         });
+         // make a box based on doc.id doc.data
+
+         //console.log(doc.id, " => ", doc.data());
+      });
+  });
+  return arr;
+ }
+
+
+ export {
+    getAllBoxes
+ }
+
+function f() {
+   console.log("default");
+}
+export default f;
 
 //add items to box
 
