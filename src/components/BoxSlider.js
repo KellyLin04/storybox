@@ -36,22 +36,6 @@ function BoxSlider(){
     }
 
     return(
-        <div className = "box-container">
-            <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-            {boxes.map((box, index) => {
-                return (
-                <div
-                    className={index === current ? 'slide active' : 'slide'}
-                    key={index}
-                >
-                    {index === current && (
-                    <Box box_id = {box.box_id} content = {box.contents}/>
-                    )}
-                </div>
-                );
-            })}
-            <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-
         <div className="box-slider">
             <div className = "box-container">
                 <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
@@ -73,7 +57,6 @@ function BoxSlider(){
             <div className="box-slider-buttons">
                 <button className = "button1" onClick={nextSlide}>Decline</button>
                 <button className = "button2" onClick={saveLikedBox}>Accept</button>
-            </div>
             </div>
         </div>
     )

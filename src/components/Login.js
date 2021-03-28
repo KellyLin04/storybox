@@ -13,8 +13,7 @@ function Login(props) {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
-      `Logged in successfully! Welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-      `Welcome ${res.profileObj.name}!`
+      `Welcome ${res.profileObj.name}`
     );
     refreshTokenSetup(res);
     props.setLoggedIn(true);
@@ -43,4 +42,3 @@ function Login(props) {
 }
 
 export default Login;
-
