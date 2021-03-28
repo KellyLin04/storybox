@@ -54,7 +54,7 @@ function BoxSlider(){
             <br></br>
             <div className="box-slider-buttons">
                 <button className = "button1" onClick={nextSlide}>Decline</button>
-                <button className = "button2" onClick={saveLikedBox}>Accept</button>
+                <button className = "button2" onClick={saveLikedBox('108304798411370817374', '101798993267056885108')}>Accept</button>
             </div>
         </div>
     )

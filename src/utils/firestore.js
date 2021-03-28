@@ -36,6 +36,9 @@ function getUser({user_id}) {
       console.log("Error getting document:", error);
    });
 }
+export {
+   getUser,
+}
 
 /** 
  * Gets a user's box(s)
@@ -57,6 +60,9 @@ function getBox({user_id}) {
   }).catch((error) => {
      console.log("Error getting document:", error);
   });
+}
+export {
+   getBox,
 }
 
 /**
@@ -128,6 +134,9 @@ function addUser({profileObj}) {
       console.log("Error getting document:", error);
    });
 }
+export {
+   addNewBox,
+}
 
 /**
  * Updates the liked field of user doc  
@@ -143,6 +152,9 @@ function saveLikedBox(user_id, liked_id){
    var arrayLiked = userData.liked;
    arrayLiked.push(liked_id);
    const res = userRef.update({liked: arrayLiked});
+}
+export {
+   saveLikedBox,
 }
 
 //add items to box
