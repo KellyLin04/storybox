@@ -71,13 +71,9 @@ function BoxSlider(){
             </div>
             <br></br>
             <div className="box-slider-buttons">
-
                 <button className = "button1" onClick={nextSlide}>Decline</button>
                 <button className = "button2" onClick={saveLikedBox}>Accept</button>
             </div>
-                <button className = "button1" onClick={nextSlide}>Decline</button>
-                <button className = "button2" onClick={saveLikedBox}>Accept</button>
-
             </div>
         </div>
     )
