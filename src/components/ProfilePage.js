@@ -2,6 +2,7 @@ import react from 'react'
 import {useState, useEffect} from 'react'
 import Box from './Box.js'
 import axios from 'axios'
+import { IconBase } from 'react-icons/lib'
 
 function ProfilePage({googleObj}){
 
@@ -19,23 +20,32 @@ function ProfilePage({googleObj}){
     }
 
     const icon_api = process.env.icon_api_key;
-    const searchTerm = searchValue
+    const searchTerm = "test"
     const icon_url = 'https://search.icons8.com/api/iconsets/v5/search?term=' + searchTerm + '&platform=cotton&token=' + icon_api
 
-    const [icon, setIcon] = useState('')
+    const [icon, setIcon] = useState([])
 
     useEffect(()=>{
-        axios.get(icon_url)
-        .then(response => {
-                setIcon(response.data.icons[0].commonName)
-        })
+        // axios.get(icon_url)
+        // .then(response => {
+        //         setIcon(response.data.icons[0].commonName)
+        // })
+        getIcon()
         .catch((error) => {
             console.log(error)
         });
-    }, [icon_url])
-
-    let url = JSON.stringify(icon)
-    url = url.slice(1,-1)
+    }, [])
+    
+    async function getIcon(){
+        let response = await axios.get(icon_url)
+        let arr = []
+        for (var i = 0; i < 10; i++){
+            let url = response.data.icons[i].commonName
+            let png = "https://img.icons8.com/cotton/40/000000/" + url + ".png"
+            arr.push(png)
+        }
+        setIcon(arr)
+    } 
 
     return(
         <div>
@@ -50,11 +60,16 @@ function ProfilePage({googleObj}){
             <div className="edit-box">
                 <textarea name="text" wrap="soft" onChange={getSearchValue}/>
                 <br/>
-                <button> Search for sprite </button>
-                <img 
-                src = {'https://img.icons8.com/cotton/40/000000/' + url + '.png'}
-                alt  = "image"
-                />   
+                <button> Add sprite </button>
+            </div>
+            <div className= "icons">
+                {icon.map((icon) => {
+                    return (
+                    <div>
+                        <img src= {icon} alt = 'image' />
+                    </div>
+                    );
+                })}
             </div>
         </div>
     )
