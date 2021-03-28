@@ -140,3 +140,8 @@ div .navbar{
   justify-content: center;
 } 
 
+.icons{
+  display: flex;
+  justify-content: center;
+} 
+
