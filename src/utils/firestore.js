@@ -28,7 +28,7 @@ function getUser({user_id}) {
    userRef.get().then((doc) => {
       if (doc.exists) {
          console.log("Document data:", doc.data());
-         return doc.data()
+         return doc
       } else {
          console.log("No such document!");
       }
@@ -50,7 +50,7 @@ function getBox({user_id}) {
   userRef.get().then((doc) => {
      if (doc.exists) {
         console.log("Document data:", doc.data());
-        return doc.data()
+        return doc
      } else {
         console.log("No such document!");
      }
@@ -127,6 +127,22 @@ function addUser({profileObj}) {
    }).catch((error) => {
       console.log("Error getting document:", error);
    });
+}
+
+/**
+ * Updates the liked field of user doc  
+ * 
+ * @param user_id 
+ * @param liked_id an array of strings represeting the box contents
+ */
+
+function saveLikedBox(user_id, liked_id){
+   console.log("save to database");
+   var userRef = getUser(user_id);
+   var userData = userRef.data();
+   var arrayLiked = userData.liked;
+   arrayLiked.push(liked_id);
+   const res = userRef.update({liked: arrayLiked});
 }
 
 //add items to box
